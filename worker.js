@@ -21,7 +21,7 @@ const worker = new Worker(
   "log-processing-queue",
   async (job) => {
     console.log(`Processing log file: ${job.data.fileName}`);
-    io.emit('log-update', { jobId: job.id });
+    io.emit('log-update', { jobId: job.id, });
   },
   { connection: redisConfig, concurrency: 4, attempts: 3 }
 );
